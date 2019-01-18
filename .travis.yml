@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_intall:
+  - docker build -t nikolaysemyonov/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run nikolaysemyonov/docker-react yarn test -- --coverage
